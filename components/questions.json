@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What is the largest planet in our solar system?",
+    "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+    "correctAnswer": "Jupiter"
+  },
+  {
+    "question": "Which gas do plants absorb from the atmosphere during photosynthesis?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "correctAnswer": "Carbon Dioxide"
+  },
+  {
+    "question": "Who wrote the play 'Romeo and Juliet'?",
+    "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Leo Tolstoy"],
+    "correctAnswer": "William Shakespeare"
+  },
+  {
+    "question": "Which planet is often referred to as the 'Red Planet'?",
+    "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+    "correctAnswer": "Mars"
+  },
+  {
+    "question": "What is the chemical symbol for the element gold?",
+    "options": ["Ag", "Au", "Fe", "Hg"],
+    "correctAnswer": "Au"
+  }
+]
