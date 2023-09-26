@@ -14,7 +14,9 @@
             <span>{{ timeRemaining }} S</span>
           </p>
         </div>
-        <div class="counter-tracker" :style="timerStyle" />
+        <div class="counter-wrapper">
+          <div class="counter-tracker" :style="timerStyle" :class="{ 'countdown-finished': timeRemaining === 0 }"></div>
+        </div>
       </div>
       <div class="answers-box" v-if="currentQuestion">
         <div
@@ -54,6 +56,7 @@ export default {
       selectedAnswer: null,
       timeRemaining: 10,
       countdownInterval: null,
+      countdownFinished: false,
       answerIndicators: [],
       quizStarted: false,
     };
@@ -89,12 +92,16 @@ export default {
         if (this.timeRemaining > 0) {
           this.timeRemaining--;
         } else {
+          clearInterval(this.countdownInterval);
+          this.countdownFinished = true;
           this.selectAnswer();
         }
       }, 1000);
       this.timeRemaining = 10;
     },
     selectAnswer(selectedOption) {
+      clearInterval(this.countdownInterval);
+
       if (this.selectedAnswer === null && this.currentQuestion) {
         this.selectedAnswer = selectedOption;
 
@@ -160,15 +167,28 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
-  position: relative;
+
   .counter-time {
     text-align: center;
   }
-  .counter-tracker {
-    background: #0b692f;
+
+  .counter-wrapper {
+    background: rgb(230, 225, 225); /* Initial gray background color */
     border-radius: 15px;
-    padding: 10px;
+    overflow: hidden;
+
+    .counter-tracker {
+      background: #0b692f;
+      padding: 10px;
+      transition: width 1s ease, background 1s ease; 
+    }
+    .countdown-finished {
+      background: red; /* Change the background color when countdown is finished */
+      width: 0; /* Reduce width to 0 */
+      transition: background 1s ease, width 1s ease; /* Add transitions for background and width */
+    }
   }
+  
 }
 .answers-box {
   display: flex;

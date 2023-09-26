@@ -13,8 +13,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 </style>
